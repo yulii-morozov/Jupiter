@@ -1,0 +1,116 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.125rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.launchBtn {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 150px;
+    transition: background 0.2s ease;
+}
+
+.launchBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.storeBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-width: 150px;
+    transition: background 0.2s ease;
+}
+
+.storeBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.storeText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    font-size: 0.85rem;
+}
+
+.small {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .nav {
+        gap: 0.75rem;
+    }
+    .launchBtn,
+    .storeBtn {
+        min-width: 150px;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menuToggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        border-radius: 0.75rem;
+        width: 200px;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .launchBtn,
+    .storeBtn {
+        width: 100%;
+    }
+}
