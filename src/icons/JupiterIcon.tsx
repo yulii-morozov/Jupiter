@@ -17,8 +17,8 @@ export const JupiterIcon = () => {
                 </g>
             </g>
             <defs>
-                <filter id="filter0_d_1_4079" x="-88.2223" y="-78.9" width="191.303" height="191.172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <filter id="filter0_d_1_4079" x="-88.2223" y="-78.9" width="191.303" height="191.172" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                     <feOffset dy="8.82226"/>
                     <feGaussianBlur stdDeviation="44.1111"/>
@@ -28,28 +28,28 @@ export const JupiterIcon = () => {
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_4079" result="shape"/>
                 </filter>
                 <linearGradient id="paint0_linear_1_4079" x1="9.8948" y1="3.49153" x2="3.0681" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
                 <linearGradient id="paint1_linear_1_4079" x1="9.89487" y1="3.49151" x2="3.06818" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
                 <linearGradient id="paint2_linear_1_4079" x1="9.89479" y1="3.49147" x2="3.0681" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
                 <linearGradient id="paint3_linear_1_4079" x1="9.89474" y1="3.4915" x2="3.06805" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
                 <linearGradient id="paint4_linear_1_4079" x1="9.89487" y1="3.4915" x2="3.06818" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
                 <linearGradient id="paint5_linear_1_4079" x1="9.89495" y1="3.49151" x2="3.06826" y2="15.2273" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.0001" stop-color="#C7F284"/>
-                    <stop offset="1" stop-color="#00BEF0"/>
+                    <stop offset="0.0001" stopColor="#C7F284"/>
+                    <stop offset="1" stopColor="#00BEF0"/>
                 </linearGradient>
             </defs>
         </svg>
