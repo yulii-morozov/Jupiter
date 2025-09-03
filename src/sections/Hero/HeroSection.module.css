@@ -1,0 +1,168 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* секция во весь экран */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* фон под контентом */
+    overflow: hidden;
+  }
+  
+  .backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* чтобы фон заполнял без искажений */
+    object-position: center;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform, opacity, filter;
+    opacity: 0.3;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 944px; /* из макета */
+    padding: 0 1rem;
+    color: #fff;
+    gap: 32px; /* как в figma */
+  }
+  
+  /* subtitle (Label) */
+  .subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    width: max-content;
+  
+    border-bottom: 1px solid transparent;
+    border-image-source: linear-gradient(
+      89.92deg,
+      rgba(255, 255, 255, 0) -13.12%,
+      rgba(199, 242, 132, 0.45) 47.3%,
+      rgba(255, 255, 255, 0) 107.72%
+    );
+    border-image-slice: 1;
+  }
+  
+  /* h1 (The DeFi Superapp) */
+  .title {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 96px; /* figma */
+    font-weight: 700;
+    line-height: 0.9; /* 90% */
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* description */
+  .description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    max-width: 623px; /* figma */
+  }
+  
+  /* кнопки */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* figma */
+  }
+  
+  .storeBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 150px;
+    height: 45px;
+    padding: 0 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .storeBtn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .storeText {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    line-height: 1.1;
+  }
+  
+  .small,
+  .smallText {
+    font-size: 12px;
+    line-height: 16px;
+    color: #6A6C76; /* figma muted gray */
+    margin-top: -4px;
+  }
+  
+  .storeText span:last-child {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+    color: #020411; /* чёрный как в figma */
+  }
+  
+  .background {
+    opacity: 0.3;
+  }
+  
+  /* адаптив */
+  @media (max-width: 1024px) {
+    .title {
+      font-size: 64px;
+    }
+    .description {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 48px;
+    }
+    .description {
+      font-size: 14px;
+    }
+    .buttons {
+      flex-direction: column;
+    }
+    .storeBtn {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+  

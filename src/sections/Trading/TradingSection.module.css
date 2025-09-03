@@ -1,0 +1,127 @@
+.tradingSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;        /* секция отображается как экран */
+  overflow: visible;    /* важно — фон может "выходить" за пределы 100vh при необходимости */
+  background-color: #020411;
+}
+
+/* прокручиваемая область */
+.scrollContainer {
+  position: relative;   /* фон будет позиционироваться относительно этого контейнера */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* padding-bottom добавляется из inline-стиля в компоненте и равен высоте фона (1000px) */
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* фон — абсолютный и "приклеен" к низу scrollContainer */
+.backgroundImage {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* height выставляем inline-стилем по BG_HEIGHT_PX (1000px) */
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* контент поверх фона */
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100vw;
+  padding-top: 150px;
+  padding-bottom: 40px; /* небольшой запас сверху/снизу внутри контента */
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.label {
+  padding: 10px 0;
+  height: 36px;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #c7f284;
+  border-bottom: 1px solid transparent;
+  border-image-source: linear-gradient(89.92deg, rgba(255,255,255,0) -13.12%, rgba(199,242,132,0.45) 47.3%, rgba(255,255,255,0) 107.72%);
+  border-image-slice: 1;
+}
+
+.title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 115%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.titleHighlight {
+  background: linear-gradient(222.18deg, #c7f284 26.29%, #00bef0 127.11%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  width: 549px;
+  max-width: 100%;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: #d2d3df;
+}
+
+/* телефон и прочее */
+.phoneContainer {
+  margin-top: 32px;
+  will-change: transform, opacity;
+}
+
+.phoneMockup {
+  border-radius: 50px;
+  padding: 10px;
+  background: #020411;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.phoneImage {
+  width: 300px;
+  height: 600px;
+}
+
+
+.scrollSpacer {
+  height: 30vh;
+  flex-shrink: 0;
+}
