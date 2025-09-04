@@ -14,8 +14,6 @@ export default function App() {
         isTransitioning,
         goToNextSection,
         goToPrevSection,
-        canGoNext,
-        canGoPrev,
         getSectionAnimationEvent,
         isSectionVisible,
     } = useSectionManager();

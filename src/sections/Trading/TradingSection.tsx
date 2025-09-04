@@ -3,11 +3,12 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, Transition  } from 'motion/react';
 import { SectionAnimationEvent } from '../../hooks/useSectionManager';
 import styles from './TradingSection.module.css';
 import phoneImage from '../../assets/iphone14.png';
 import bgImage from '../../assets/trading-section-bg.png';
+import Image from "next/image";
 
 interface TradingSectionProps {
   isActive: boolean;
@@ -16,6 +17,13 @@ interface TradingSectionProps {
   onRequestNextSection: () => void;
   animationEvent: SectionAnimationEvent;
 }
+
+interface SectionAnimation {
+  initial?: { [key: string]: number | string };
+  animate?: { [key: string]: number | string };
+  transition: Transition;
+}
+
 
 const TRANSITION_SPEED = 0.8;
 const SCROLL_DEBOUNCE_MS = 50;
@@ -72,15 +80,16 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
     }
   }, [isActive, isTransitioning]);
 
-  // Custom animation logic for the Trading section.
-  const getSectionAnimation = () => {
+  const getSectionAnimation = (): SectionAnimation => {
     const { type, scrollDirection } = animationEvent;
+    const defaultTransition: Transition = { duration: TRANSITION_SPEED, ease: 'easeInOut' };
 
     if (type === 'section_closing') {
       const animateY = scrollDirection === 'down' ? '-100%' : '100%';
       return {
-        animate: { y: animateY, opacity: 1 },
-        transition: { duration: TRANSITION_SPEED, ease: 'easeInOut' }
+        initial: { y: 0, opacity: 1 },
+        animate: { y: animateY, opacity: 0 },
+        transition: defaultTransition,
       };
     }
 
@@ -90,14 +99,24 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
         return {
           initial: { y: initialY, opacity: 1 },
           animate: { y: 0, opacity: 1 },
-          transition: { duration: TRANSITION_SPEED, ease: 'easeInOut' }
+          transition: defaultTransition,
         };
       } else {
-        return { animate: { y: 0, opacity: 1 }, transition: { duration: 0 } };
+        return {
+          initial: { y: 0, opacity: 1 },
+          animate: { y: 0, opacity: 1 },
+          transition: { duration: 0 },
+        };
       }
     }
-    return {};
+
+    return {
+      initial: { y: 0, opacity: 1 },
+      animate: { y: 0, opacity: 1 },
+      transition: defaultTransition,
+    };
   };
+
 
   const getContentAnimations = () => {
     if (animationEvent.type === 'section_closing') {
@@ -125,7 +144,7 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
           transition={sectionAnimation.transition}
       >
         <div ref={scrollRef} className={styles.scrollContainer} style={{ paddingBottom: `${BG_HEIGHT_PX}px` }}>
-          <img src={bgImage.src} alt="" aria-hidden className={styles.backgroundImage} style={{ height: `${BG_HEIGHT_PX}px` }}/>
+          <Image src={bgImage.src} alt="" aria-hidden className={styles.backgroundImage} style={{ height: `${BG_HEIGHT_PX}px` }}/>
           <div className={styles.container}>
             <motion.div className={styles.textContainer} animate={contentAnimations.text} transition={{ duration: 0.6, ease: 'easeOut' }}>
               <p className={styles.label}>One-Tap Trading</p>
@@ -133,7 +152,7 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
               <p className={styles.description}>Access tens of millions of Solana tokens with the most comprehensive coverage. Spot trade, set limit orders, DCA (dollar-cost average) into anything from SOL to memecoins.</p>
             </motion.div>
             <motion.div className={styles.phoneContainer} animate={contentAnimations.phone} transition={{ duration: TRANSITION_SPEED, ease: 'easeInOut' }}>
-              <div className={styles.phoneMockup}><img src={phoneImage.src} className={styles.phoneImage} alt="Phone mockup" /></div>
+              <div className={styles.phoneMockup}><Image src={phoneImage.src} className={styles.phoneImage} alt="Phone mockup" /></div>
             </motion.div>
             <div className={styles.scrollSpacer}></div>
           </div>

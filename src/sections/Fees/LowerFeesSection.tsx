@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, Transition  } from 'motion/react';
 import { SectionAnimationEvent } from '../../hooks/useSectionManager';
 import styles from './LowerFeesSection.module.css';
 import backgroundImage from '../../assets/lower-fees-section-bg.png';
+import Image from 'next/image';
 
 interface LowerFeesSectionProps {
   isActive: boolean;
@@ -13,6 +14,13 @@ interface LowerFeesSectionProps {
   onRequestNextSection: () => void;
   animationEvent: SectionAnimationEvent;
 }
+
+interface SectionAnimation {
+  initial?: { [key: string]: number | string };
+  animate?: { [key: string]: number | string };
+  transition: Transition;
+}
+
 
 const TRANSITION_SPEED = 0.8;
 const SCROLL_DEBOUNCE_MS = 50;
@@ -64,17 +72,16 @@ export const LowerFeesSection: React.FC<LowerFeesSectionProps> = ({
     }
   }, [isActive, isTransitioning]);
 
-  // Custom animation logic for the Lower Fees section.
-  const getSectionAnimation = () => {
+  const getSectionAnimation = (): SectionAnimation => {
     const { type, scrollDirection } = animationEvent;
+    const defaultTransition: Transition = { duration: TRANSITION_SPEED, ease: 'easeInOut' };
 
     if (type === 'section_closing') {
-      // This is the last section, so it only animates up (when going to a theoretical next section)
-      // or down (when going back to the previous section).
       const animateY = scrollDirection === 'down' ? '-100%' : '100%';
       return {
-        animate: { y: animateY },
-        transition: { duration: TRANSITION_SPEED, ease: 'easeInOut' }
+        initial: { y: 0, opacity: 1 },
+        animate: { y: animateY, opacity: 0 },
+        transition: defaultTransition,
       };
     }
 
@@ -82,22 +89,30 @@ export const LowerFeesSection: React.FC<LowerFeesSectionProps> = ({
       if (isTransitioning) {
         const initialY = scrollDirection === 'down' ? '100%' : '-100%';
         return {
-          initial: { y: initialY },
-          animate: { y: 0 },
-          transition: { duration: TRANSITION_SPEED, ease: 'easeInOut' }
+          initial: { y: initialY, opacity: 1 },
+          animate: { y: 0, opacity: 1 },
+          transition: defaultTransition,
         };
       } else {
-        return { animate: { y: 0 }, transition: { duration: 0 } };
+        return {
+          initial: { y: 0, opacity: 1 },
+          animate: { y: 0, opacity: 1 },
+          transition: { duration: 0 },
+        };
       }
     }
-    return {};
+
+    return {
+      initial: { y: 0, opacity: 1 },
+      animate: { y: 0, opacity: 1 },
+      transition: defaultTransition,
+    };
   };
+
 
   const progress = Math.min(scrollY / PARALLAX_EFFECT_RANGE, 1);
   const parallaxY = progress * -80;
   const imageOpacity = animationEvent.type === 'section_closing' ? 0 : (1 - progress * 0.4);
-  const textOpacity = animationEvent.type === 'section_closing' ? 0 : progress;
-
   const sectionAnimation = getSectionAnimation();
 
   return (
@@ -109,7 +124,7 @@ export const LowerFeesSection: React.FC<LowerFeesSectionProps> = ({
       >
         <div ref={scrollRef} className={styles.scrollContainer}>
           <div className={styles.mountainContainer} style={{ transform: `translate3d(0, ${parallaxY}px, 0)`, opacity: imageOpacity }}>
-            <img className={styles.mountains} src={backgroundImage.src} alt="Mountain background" />
+            <Image className={styles.mountains} src={backgroundImage.src} alt="Mountain background" />
           </div>
           <div className={styles.contentContainer} > {/*  style={{ opacity: textOpacity, transition: 'opacity 0.3s ease-in-out' }} */}
             <h1 className={styles.headline}>

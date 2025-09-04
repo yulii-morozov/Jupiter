@@ -1,6 +1,4 @@
 export const JupiterIcon = () => {
-    // @ts-ignore
-    // @ts-ignore
     return (
         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_1_4079" maskUnits="userSpaceOnUse" x="0" y="0" width="15" height="16">

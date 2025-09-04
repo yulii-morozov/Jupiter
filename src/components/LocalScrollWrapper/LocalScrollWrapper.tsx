@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { useLocalScroll, LocalScrollEvent } from '@/hooks/useLocalScroll';
+import { useLocalScroll, ScrollEvent } from '@/hooks/useLocalScroll';
 
 interface LocalScrollWrapperProps {
     children: (args: { localAnimationStage: number; containerRef: React.RefObject<HTMLDivElement> }) => React.ReactNode;
@@ -11,13 +11,13 @@ interface LocalScrollWrapperProps {
     isTransitioning: boolean;
     onRequestPrevSection: () => void;
     onRequestNextSection?: () => void; // Optional if section is last
-    scrollEvents?: LocalScrollEvent[]; // Internal scroll events for this section
+    scrollEvents?: ScrollEvent[]; // Internal scroll events for this section
     requiresScrollToEnd?: boolean; // Does this section require scrolling to its end before next section?
     contentHeight?: number; // Explicit height for scroll content if known (e.g., TradingSection's BG_HEIGHT_PX)
     scrollDebounceMs?: number; // Pass-through for useLocalScroll
 }
 
-const DEFAULT_SCROLL_EVENTS: LocalScrollEvent[] = [];
+const DEFAULT_SCROLL_EVENTS: ScrollEvent[] = [];
 
 export const LocalScrollWrapper: React.FC<LocalScrollWrapperProps> = ({
     children,
@@ -33,7 +33,7 @@ export const LocalScrollWrapper: React.FC<LocalScrollWrapperProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
     const [localAnimationStage, setLocalAnimationStage] = useState(0);
 
-    const handleScrollEvent = useCallback((event: LocalScrollEvent) => {
+    const handleScrollEvent = useCallback((event: ScrollEvent) => {
         switch (event.type) {
             case 'next_section':
                 onRequestNextSection?.(); // Call if provided
@@ -90,7 +90,7 @@ export const LocalScrollWrapper: React.FC<LocalScrollWrapperProps> = ({
             {requiresScrollToEnd && contentHeight && (
                 <div style={{ height: `${contentHeight}px`, position: 'absolute', width: '100%', top: 0, left: 0 }}></div>
             )}
-            {children({ localAnimationStage, containerRef })}
+            {children({ localAnimationStage, containerRef: containerRef as React.RefObject<HTMLDivElement> })}
         </div>
     );
 };

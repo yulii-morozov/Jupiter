@@ -4,7 +4,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-interface ScrollEvent {
+export interface ScrollEvent {
   type: 'local_animation' | 'next_section' | 'prev_section';
   animationStep?: number;
 }
@@ -14,9 +14,10 @@ interface UseLocalScrollProps {
   onScrollEvent: (event: ScrollEvent) => void;
   onScrollUpFromTop?: () => void;
   disabled?: boolean;
-  resetTrigger?: any;
-  containerRef?: React.RefObject<HTMLElement>;
+  resetTrigger?: boolean;
+  containerRef?: React.RefObject<HTMLElement | null>;
   requiresScrollToEnd?: boolean;
+  scrollDebounceMs?: number;
 }
 
 const SCROLL_DEBOUNCE_MS = 300;

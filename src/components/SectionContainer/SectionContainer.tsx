@@ -3,7 +3,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import { SectionTransitionEvent } from '@/types/sections'; // Use SectionTransitionEvent from types
 import styles from './SectionContainer.module.css'; // Create this CSS module
 
@@ -25,7 +25,7 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
     transitionSpeed = DEFAULT_TRANSITION_SPEED,
 }) => {
     // Fullpage.js style section variants for smooth slide transitions
-    const sectionVariants = {
+    const sectionVariants: Variants = {
         // Initial position (visible and stable)
         enter: {
             y: 0,

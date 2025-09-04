@@ -69,9 +69,10 @@ export const useSectionScroll = ({
             // Request section transition
             lastScrollTime.current = now;
             onTransitionRequest({
-                type: 'SECTION_CHANGE_REQUEST',
-                direction,
-                fromSection: sectionType,
+                activeSection: sectionType,
+                isOpen: true,
+                scrollDirection: direction,
+                transitionType: direction === 'down' ? 'closing' : 'opening',
             });
         };
 
