@@ -1,14 +1,14 @@
 .tradingSection {
   position: relative;
   width: 100%;
-  height: 100vh;        /* секция отображается как экран */
-  overflow: visible;    /* важно — фон может "выходить" за пределы 100vh при необходимости */
+  height: 100vh;
+  overflow: visible;
   background-color: #020411;
 }
 
-/* прокручиваемая область */
+
 .scrollContainer {
-  position: relative;   /* фон будет позиционироваться относительно этого контейнера */
+  position: relative;
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -16,26 +16,24 @@
   justify-content: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  /* padding-bottom добавляется из inline-стиля в компоненте и равен высоте фона (1000px) */
 }
 
 .scrollContainer::-webkit-scrollbar {
   display: none;
 }
 
-/* фон — абсолютный и "приклеен" к низу scrollContainer */
 .backgroundImage {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  /* height выставляем inline-стилем по BG_HEIGHT_PX (1000px) */
+
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
 }
 
-/* контент поверх фона */
+
 .container {
   position: relative;
   z-index: 1;
@@ -45,7 +43,7 @@
   gap: 16px;
   width: 100vw;
   padding-top: 150px;
-  padding-bottom: 40px; /* небольшой запас сверху/снизу внутри контента */
+  padding-bottom: 40px;
 }
 
 .textContainer {
@@ -99,7 +97,6 @@
   color: #d2d3df;
 }
 
-/* телефон и прочее */
 .phoneContainer {
   margin-top: 32px;
   will-change: transform, opacity;

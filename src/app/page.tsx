@@ -7,6 +7,7 @@ import { TradingSection } from '@/sections/Trading/TradingSection';
 import { LowerFeesSection } from '@/sections/Fees/LowerFeesSection';
 import { SectionType } from '@/types/sections';
 import styles from './App.module.css';
+import {ProSection} from "@/sections/ProSection/ProSection";
 
 export default function App() {
     const {
@@ -55,6 +56,19 @@ export default function App() {
                     />
                 </div>
             )}
+
+            {isSectionVisible(SectionType.PRO) && (
+                <div className={styles.section}>
+                    <ProSection
+                        isActive={activeSection === SectionType.PRO}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.PRO)}
+                    />
+                </div>
+            )}
+
 
         </div>
     );

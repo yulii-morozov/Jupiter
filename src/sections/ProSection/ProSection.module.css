@@ -1,0 +1,367 @@
+.section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    background: #000;
+    overflow: hidden;
+}
+
+.jupiter_pro {
+    width: fit-content;
+    height: 36px;
+    angle: 0 deg;
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 4px;
+
+    font-family: Satoshi;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: rgba(199, 242, 132, 1);
+
+
+    border-bottom: 2px solid transparent;
+    border-image-source: linear-gradient(89.92deg, rgba(255, 255, 255, 0) -13.12%, rgba(199, 242, 132, 0.45) 47.3%, rgba(255, 255, 255, 0) 107.72%);
+    border-image-slice: 1;
+
+    margin-bottom: 16px;
+}
+
+.header {
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.highlight {
+    background: linear-gradient(222.18deg, #C7F284 26.29%, #00BEF0 127.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    color: rgba(210, 211, 223, 1);
+}
+
+.accent {
+    color: rgba(199, 242, 132, 1);
+}
+
+/* === GRID === */
+.grid {
+    display: grid;
+    grid-template-columns: 352px 326px 326px;
+    grid-template-rows: 120px 322px;
+    gap: 1.2rem;
+    width: auto;
+    max-width: none;
+}
+
+/* === CARDS === */
+.card {
+    background: #111;
+    border-radius: 0.9rem;
+    padding: 16px;
+    text-align: left;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.jepContent {
+
+}
+
+.jepButtons {
+
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+}
+
+/* === Layout === */
+.tokensCard {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    height: 458px;
+    padding: 21px;
+}
+
+.tokenContentHedText {
+    /*font-family: Inter;*/
+    font-weight: 500;
+    font-size: 10.79px;
+    leading-trim: NONE;
+    line-height: 14.39px;
+    letter-spacing: 0px;
+    text-align: right;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+
+    color: rgba(243, 254, 252, 0.5608);
+}
+
+.tokenListItemImage {
+    width: 36px;
+    height: 36px;
+    angle: 0 deg;
+    opacity: 1;
+    border-radius: 35.97px;
+}
+
+.tokenContentFirst {
+    width: 55%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+
+}
+
+.tokenContentSecond {
+    width: 23%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+
+}
+
+.tokenContentThird {
+    width: 22%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.tokenContentNumber {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: right;
+}
+
+.jupCard {
+    grid-row: 1;
+    grid-column: 2;
+    height: 120px;
+}
+
+.solCard {
+    grid-row: 2;
+    grid-column: 2;
+    height: 322px;
+}
+
+/* Activity зверху, Holdings знизу */
+.activityCard {
+    grid-row: 1;
+    grid-column: 3;
+    height: 218px;
+}
+
+.holdingsCard {
+    grid-row: 2;
+    grid-column: 3;
+    height: 224px;
+    align-self: end; /* <-- спускаємо верх блока вниз, не чіпаючи висоту */
+}
+
+/* === Tokens === */
+.tokenList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tokenListItem {
+    display: flex;
+    padding: 14px 0;
+
+    border-top: 0.9px solid rgba(243, 254, 252, 0.08);
+
+    width: 100%;
+}
+
+.tokenListItemFirstBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.startImage {
+    margin-right: 10px;
+}
+
+.tokenListItemTitleBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 8px;
+}
+
+.tokenListItemTitle {
+    /*font-family: Inter;*/
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 14.39px;
+    leading-trim: NONE;
+    line-height: 19.78px;
+    letter-spacing: 0px;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+}
+.tokenListItemCount {
+    /*font-family: Inter;*/
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 10.79px;
+    leading-trim: NONE;
+    line-height: 14.39px;
+    letter-spacing: 0px;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+
+    color: rgba(243, 254, 252, 0.5608);
+}
+
+.tokenListItemCost {
+    /*font-family: Inter;*/
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14.39px;
+    leading-trim: NONE;
+    line-height: 19.78px;
+    letter-spacing: 0px;
+    text-align: right;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+}
+
+.tokenListItemDiscount {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 12.59px;
+    leading-trim: NONE;
+    line-height: 16.19px;
+    letter-spacing: 0px;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+    color: rgba(36, 201, 141, 1);
+}
+
+/* === Prices === */
+.price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.change {
+    font-size: 0.9rem;
+    color: #3dfb97;
+    margin-bottom: 0.6rem;
+}
+
+/* === Chart === */
+.chartPlaceholder {
+    background: #222;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.85rem;
+    width: 100%;
+    flex: 1;
+}
+
+/* === Holdings === */
+.holdingsInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.holdingsInfo p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.positive {
+    color: #3dfb97;
+}
+
+/* === Activity === */
+.activityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activityList li {
+    font-size: 0.85rem;
+    color: #ddd;
+    margin-bottom: 0.3rem;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    .tokensCard,
+    .jupCard,
+    .solCard,
+    .holdingsCard,
+    .activityCard {
+        grid-row: auto;
+        grid-column: auto;
+        height: auto;
+        align-self: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

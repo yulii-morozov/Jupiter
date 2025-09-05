@@ -25,7 +25,6 @@ export const useSectionScroll = ({
     const lastScrollTime = useRef(0);
 
     useEffect(() => {
-        // Block body scroll when any section is active
         if (isActive) {
             document.body.style.overflow = 'hidden';
         }
@@ -41,7 +40,7 @@ export const useSectionScroll = ({
         if (!isActive || isTransitioning) return;
 
         const handleWheel = (e: WheelEvent) => {
-            e.preventDefault(); // Always block default scroll
+            e.preventDefault();
 
             const now = Date.now();
             if (now - lastScrollTime.current < SCROLL_DEBOUNCE_MS) {
@@ -50,23 +49,19 @@ export const useSectionScroll = ({
 
             const direction = e.deltaY > 0 ? 'down' : 'up';
 
-            // For sections with internal scroll, check boundaries
             if (hasInternalScroll && scrollContainerRef?.current) {
                 const container = scrollContainerRef.current;
                 const isAtTop = container.scrollTop <= 1;
                 const isAtBottom = Math.ceil(container.scrollTop + container.clientHeight) >=
                     container.scrollHeight - 1;
 
-                // If scrolling within content (not at boundaries), handle internal scroll
                 if ((direction === 'down' && !isAtBottom) || (direction === 'up' && !isAtTop)) {
-                    // Manually handle scroll for the container
                     const scrollAmount = direction === 'down' ? 100 : -100;
                     container.scrollBy({ top: scrollAmount, behavior: 'smooth' });
                     return;
                 }
             }
 
-            // Request section transition
             lastScrollTime.current = now;
             onTransitionRequest({
                 activeSection: sectionType,
@@ -82,7 +77,6 @@ export const useSectionScroll = ({
         };
     }, [isActive, isTransitioning, sectionType, onTransitionRequest, hasInternalScroll, scrollContainerRef]);
 
-    // Reset scroll position when section becomes active
     useEffect(() => {
         if (isActive && scrollContainerRef?.current) {
             scrollContainerRef.current.scrollTop = 0;

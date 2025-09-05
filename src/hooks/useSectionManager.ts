@@ -5,8 +5,8 @@
 import { useState, useCallback } from 'react';
 import { SectionType } from '@/types/sections';
 
-const SECTIONS_ORDER = [SectionType.HERO, SectionType.TRADING, SectionType.LOWER_FEES];
-const TRANSITION_DURATION = 800; // ms, should match animation duration in components
+const SECTIONS_ORDER = [SectionType.HERO, SectionType.TRADING, SectionType.LOWER_FEES, SectionType.PRO];
+const TRANSITION_DURATION = 800;
 
 export interface SectionAnimationEvent {
   type: 'section_opening' | 'section_closing';
@@ -36,13 +36,12 @@ export const useSectionManager = () => {
 
     setIsTransitioning(true);
     setScrollDirection(direction);
-    setPreviousSection(activeSection); // Keep track of the section that's closing.
-    setActiveSection(newSection);     // Switch to the new section immediately to trigger render.
+    setPreviousSection(activeSection);
+    setActiveSection(newSection);
 
-    // After the animation duration, clean up the state.
     setTimeout(() => {
       setIsTransitioning(false);
-      setPreviousSection(null); // Remove the old section from the DOM after it has animated out.
+      setPreviousSection(null);
     }, TRANSITION_DURATION);
   }, [isTransitioning, activeSection]);
 
@@ -58,7 +57,6 @@ export const useSectionManager = () => {
     }
   }, [activeIndex, canGoPrev, goToSection]);
 
-  // Determines if a section should be rendered. During a transition, both the old and new sections are rendered.
   const isSectionVisible = useCallback((section: SectionType): boolean => {
     if (!isTransitioning) {
       return section === activeSection;
@@ -66,10 +64,8 @@ export const useSectionManager = () => {
     return section === activeSection || section === previousSection;
   }, [activeSection, isTransitioning, previousSection]);
 
-  // Generates an "event" object that tells each section how it should animate.
   const getSectionAnimationEvent = useCallback((section: SectionType): SectionAnimationEvent => {
     if (!isTransitioning) {
-      // If not transitioning, the active section is considered "opening" in a stable state.
       return { type: 'section_opening', scrollDirection: 'down', toSection: section };
     }
 
@@ -92,7 +88,6 @@ export const useSectionManager = () => {
       };
     }
 
-    // Fallback for non-visible sections
     return { type: 'section_closing', scrollDirection, toSection: activeSection };
   }, [activeSection, previousSection, isTransitioning, scrollDirection]);
 

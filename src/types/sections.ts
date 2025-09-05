@@ -2,12 +2,12 @@ export enum SectionType {
     HERO = 'hero',
     TRADING = 'trading',
     LOWER_FEES = 'lower_fees',
-    // Add more sections here as needed
+    PRO = 'pro'
 }
 
 export interface SectionTransitionEvent {
     activeSection: SectionType;
-    isOpen: boolean; // True if the section is meant to be visible/open
+    isOpen: boolean;
     scrollDirection: 'up' | 'down';
-    transitionType: 'opening' | 'closing'; // Indicates if this section is currently opening or closing
+    transitionType: 'opening' | 'closing';
 }
