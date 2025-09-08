@@ -1,0 +1,97 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #000;
+    text-align: center;
+    padding: 4rem 2rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    max-width: 800px;
+}
+
+.badge {
+    width: fit-content;
+    height: 36px;
+    angle: 0 deg;
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 4px;
+
+    font-family: Satoshi;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: rgba(199, 242, 132, 1);
+
+
+    border-bottom: 2px solid transparent;
+    border-image-source: linear-gradient(89.92deg, rgba(255, 255, 255, 0) -13.12%, rgba(199, 242, 132, 0.45) 47.3%, rgba(255, 255, 255, 0) 107.72%);
+    border-image-slice: 1;
+}
+
+.title {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.highlight {
+    background: linear-gradient(222.18deg, #C7F284 26.29%, #00BEF0 127.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-family: Satoshi;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: center;
+
+}
+
+.accent {
+    color: rgba(199, 242, 132, 1);
+    font-family: Satoshi;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px)
+}
+
+.button:hover {
+    background: #b0ffb7;
+    color: #000;
+}

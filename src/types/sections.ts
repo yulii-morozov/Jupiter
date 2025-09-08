@@ -2,7 +2,13 @@ export enum SectionType {
     HERO = 'hero',
     TRADING = 'trading',
     LOWER_FEES = 'lower_fees',
-    PRO = 'pro'
+    PRO = 'pro',
+    FOOTER = 'footer',
+    FASTEST = 'fastest',
+    UNIVERSAL = 'universal',
+    MAGIC = 'magic',
+    RADAR = 'radar',
+    PORTFOLIO = 'portfolio',
 }
 
 export interface SectionTransitionEvent {

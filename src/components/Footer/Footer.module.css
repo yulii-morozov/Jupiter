@@ -1,0 +1,106 @@
+.footer {
+    background: #0b0c13;
+    padding: 3rem 2rem 2rem;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.brand {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.logoRow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin: 0 0 2rem 0;
+}
+
+.copy {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.links {
+    display: flex;
+    gap: 4rem;
+    flex: 2;
+    flex-wrap: wrap;
+    min-width: 400px;
+}
+
+.linkGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 120px;
+}
+
+.groupTitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 0.6rem;
+}
+
+.linkGroup a {
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+.linkGroup a:hover {
+    color: #3dfb97;
+}
+
+.terms {
+    text-align: right;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+}
+
+.terms a {
+    color: #777;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.terms a:hover {
+    color: #3dfb97;
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+    .terms {
+        text-align: left;
+    }
+}

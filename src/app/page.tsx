@@ -7,7 +7,13 @@ import { TradingSection } from '@/sections/Trading/TradingSection';
 import { LowerFeesSection } from '@/sections/Fees/LowerFeesSection';
 import { SectionType } from '@/types/sections';
 import styles from './App.module.css';
-import {ProSection} from "@/sections/ProSection/ProSection";
+import {ProSection} from "@/sections/Pro/ProSection";
+import {Footer} from "@/components/Footer/Footer";
+import {FastestSection} from "@/sections/Fastest/FastestSection";
+import {UniversalSendSection} from "@/sections/UniversalSend/UniversalSendSection";
+import {MagicScanSection} from "@/sections/MagicScan/MagicScanSection";
+import {RadarSection} from "@/sections/Radar/RadarSection";
+import {PortfolioSection} from "@/sections/Portfolio/PortfolioSection";
 
 export default function App() {
     const {
@@ -69,7 +75,77 @@ export default function App() {
                 </div>
             )}
 
+            {isSectionVisible(SectionType.FASTEST) && (
+                <div className={styles.section}>
+                    <FastestSection
+                        isActive={activeSection === SectionType.FASTEST}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.FASTEST)}
+                    />
+                </div>
+            )}
 
+            {isSectionVisible(SectionType.PORTFOLIO) && (
+                <div className={styles.section}>
+                    <PortfolioSection
+                        isActive={activeSection === SectionType.PORTFOLIO}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.PORTFOLIO)}
+                    />
+                </div>
+            )}
+
+            {isSectionVisible(SectionType.UNIVERSAL) && (
+                <div className={styles.section}>
+                    <UniversalSendSection
+                        isActive={activeSection === SectionType.UNIVERSAL}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.UNIVERSAL)}
+                    />
+                </div>
+            )}
+
+            {isSectionVisible(SectionType.MAGIC) && (
+                <div className={styles.section}>
+                    <MagicScanSection
+                        isActive={activeSection === SectionType.MAGIC}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.MAGIC)}
+                    />
+                </div>
+            )}
+
+            {isSectionVisible(SectionType.RADAR) && (
+                <div className={styles.section}>
+                    <RadarSection
+                        isActive={activeSection === SectionType.RADAR}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.RADAR)}
+                    />
+                </div>
+            )}
+
+            {isSectionVisible(SectionType.FOOTER) && (
+                <div className={styles.section}>
+                    <Footer
+                        isActive={activeSection === SectionType.FOOTER}
+                        isTransitioning={isTransitioning}
+                        onRequestPrevSection={goToPrevSection}
+                        onRequestNextSection={goToNextSection}
+                        animationEvent={getSectionAnimationEvent(SectionType.FOOTER)}
+                    />
+                </div>
+            )}
         </div>
     );
 }

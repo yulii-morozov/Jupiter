@@ -6,7 +6,8 @@ import styles from './ProSection.module.css';
 import { ScrollEvent, useLocalScroll } from '@/hooks/useLocalScroll';
 import first from "@/assets/Tokens/first.png";
 import Image from "next/image";
-import {StartSelectImage} from "@/icons/StarSelectImage";
+import {JupiterIcon} from "@/icons/JupiterIcon";
+import {StartSelectIcon} from "@/icons/StarSelectIcon";
 
 interface ProSectionProps {
     isActive: boolean;
@@ -74,7 +75,7 @@ export const ProSection: React.FC<ProSectionProps> = ({
                             <li key={i} className={styles.tokenListItem}>
                             <span className={`${styles.tokenContentFirst} ${styles.tokenListItemFirstBlock}`}>
                                     <span className={styles.startImage}>
-                                        <StartSelectImage  />
+                                        <StartSelectIcon/>
                                     </span>
                                     <Image src={first} className={`${styles.tokenListItemImage}`} alt="first image"/>
                                 <span className={`${styles.tokenListItemTitleBlock}`}>
@@ -98,7 +99,8 @@ export const ProSection: React.FC<ProSectionProps> = ({
                 {/* 2. JUP card */}
                 <div className={styles.card}>
                     <div className={styles.jepContent}>
-
+                        <JupiterIcon />
+                        JUP
                     </div>
                     <div className={styles.jepButtons}>
 
