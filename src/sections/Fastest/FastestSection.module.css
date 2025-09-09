@@ -12,22 +12,23 @@
 }
 
 .content {
-    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .badge {
     width: fit-content;
     height: 36px;
-    angle: 0 deg;
     opacity: 1;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     gap: 4px;
 
     font-family: Satoshi;
     font-weight: 700;
     font-size: 12px;
-    leading-trim: NONE;
     line-height: 100%;
     text-transform: uppercase;
     color: rgba(199, 242, 132, 1);
@@ -36,7 +37,7 @@
     border-bottom: 2px solid transparent;
     border-image-source: linear-gradient(89.92deg, rgba(255, 255, 255, 0) -13.12%, rgba(199, 242, 132, 0.45) 47.3%, rgba(255, 255, 255, 0) 107.72%);
     border-image-slice: 1;
-
+    margin-bottom: 24px;
 }
 
 .title {
@@ -61,4 +62,5 @@
     line-height: 140%;
     text-align: center;
     color: rgba(210, 211, 223, 1);
+    max-width: 512px;
 }

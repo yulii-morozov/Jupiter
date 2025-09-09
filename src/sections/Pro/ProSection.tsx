@@ -4,10 +4,17 @@ import React from 'react';
 import { SectionAnimationEvent } from '@/hooks/useSectionManager';
 import styles from './ProSection.module.css';
 import { ScrollEvent, useLocalScroll } from '@/hooks/useLocalScroll';
-import first from "@/assets/Tokens/first.png";
+import TRUMP from "@/assets/Tokens/TRUMP.png";
+import JUP from "@/assets/Tokens/JUP.png";
+import SOL from "@/assets/Tokens/SOL.png";
+import S from "@/assets/Tokens/S.png"
 import Image from "next/image";
-import {JupiterIcon} from "@/icons/JupiterIcon";
-import {StartSelectIcon} from "@/icons/StarSelectIcon";
+import {StartSelectImage} from "@/icons/StarSelectImage";
+import {CheckIcon} from "@/icons/CheckIcon";
+import {ProgressIcon} from "@/icons/ProgressIcon";
+import {DotsIcon} from "@/icons/DotsIcon";
+import {EkoIcon} from "@/icons/EkoIcon";
+import {MiniArrowDownIcon} from "@/icons/MiniArrowDownIcon";
 
 interface ProSectionProps {
     isActive: boolean;
@@ -57,7 +64,6 @@ export const ProSection: React.FC<ProSectionProps> = ({
             </div>
 
             <div className={styles.grid}>
-                {/* 1. Trending tokens */}
                 <div className={`${styles.card} ${styles.tokensCard}`}>
                     <div className={styles.cardTitle}>
                         <span className={`${styles.tokenContentFirst} ${styles.tokenContentHedText}`}>
@@ -75,9 +81,9 @@ export const ProSection: React.FC<ProSectionProps> = ({
                             <li key={i} className={styles.tokenListItem}>
                             <span className={`${styles.tokenContentFirst} ${styles.tokenListItemFirstBlock}`}>
                                     <span className={styles.startImage}>
-                                        <StartSelectIcon/>
+                                        <StartSelectImage  />
                                     </span>
-                                    <Image src={first} className={`${styles.tokenListItemImage}`} alt="first image"/>
+                                    <Image src={TRUMP} className={`${styles.tokenListItemImage}`} alt="first image"/>
                                 <span className={`${styles.tokenListItemTitleBlock}`}>
                                     <span className={`${styles.tokenListItemTitle}`}>TRUMP</span>
                                     <span className={`${styles.tokenListItemCount}`}>170d</span>
@@ -96,35 +102,105 @@ export const ProSection: React.FC<ProSectionProps> = ({
                     </ul>
                 </div>
 
-                {/* 2. JUP card */}
                 <div className={styles.card}>
+                    <span className={styles.jepOpenLine}/>
                     <div className={styles.jepContent}>
-                        <JupiterIcon />
-                        JUP
+                        <StartSelectImage width={22} height={22} />
+                        <Image src={JUP} className={`${styles.jepImage}`} alt="second image" />
+                        <div className={styles.jepTitleBlock}>
+                            <div className={`${styles.jepTitles}`}>
+                                <p className={`${styles.jepTitle}`}>JEP <CheckIcon /></p>
+                                <p className={`${styles.jepCount}`}>322d</p>
+                            </div>
+                            <div className={styles.jepCosts}>
+                                <p className={`${styles.jepCost}`}>$1.001</p>
+                                <p className={`${styles.jepProgres}`}><ProgressIcon /> 3.1%</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.jepButtons}>
-
+                    <div className={styles.jepButtonsContainer}>
+                        <div className={styles.jepButtons}>
+                            <button className={`${styles.jepButton} ${styles.jepButtonActive}`}>
+                                <span className={`${styles.jepButtonActiveText}`}>
+                                    Pro
+                                </span>
+                            </button>
+                            <button className={`${styles.jepButton}`}>Live Feed</button>
+                            <button className={`${styles.jepButton}`}>Content</button>
+                        </div>
+                        <div className={`${styles.jepButtonOptions} ${styles.jepButtonActive}`}>
+                            <span className={`${styles.jepButtonActiveText}`}>
+                                <DotsIcon />
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                {/* 3. SOL card */}
                 <div className={styles.card}>
-                    <h3 className={styles.cardTitle}>SOL</h3>
-                    <p className={styles.price}>$1.001</p>
-                    <p className={styles.change}>+0.01%</p>
+                    <div className={styles.jepContent}>
+                        <Image src={SOL} className={`${styles.jepImage}`} alt="second image" />
+                        <div className={styles.jepTitleBlock}>
+                            <div className={`${styles.jepTitles}`}>
+                                <p className={`${styles.jepTitle}`}>SOL <CheckIcon stroke={"#1FFFE9"} /></p>
+                                <p className={`${styles.jepCount}`}>Solana Coin</p>
+                            </div>
+                            <div className={styles.solEkoBlock}>
+                                <div className={`${styles.solEko}`}>
+                                    <div className={`${styles.solEkoIcon}`}>
+                                        <EkoIcon />
+                                    </div>
+                                    <div className={`${styles.solEkoCount}`}>100</div>
+                                </div>
+                                <div className={`${styles.jepButtonOptions} ${styles.jepButtonActive}`}>
+                                    <span className={`${styles.jepButtonActiveText}`}>
+                                        <DotsIcon />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className={styles.chartPlaceholder}>
                         Chart placeholder
                     </div>
                 </div>
 
-                {/* 4. Recent Activity (зверху) */}
+                {/* 4. Recent Activity */}
                 <div className={`${styles.card} ${styles.activityCard}`}>
-                    <h3 className={styles.cardTitle}>Recent Activity</h3>
                     <ul className={styles.activityList}>
-                        <li>Swap — +14.71 USDC</li>
-                        <li>Limit Order — +14.71 USDC</li>
+                        <li className={styles.activityItem}>
+                            <div className={styles.activityLeft}>
+                                <Image src={S} alt="swap" className={styles.activityTokenIcon}/>
+                                <div className={styles.activityTextBlock}>
+                                    <p className={styles.activityTitle}>Swap</p>
+                                    <p className={styles.activityDate}>December 4, 2024</p>
+                                </div>
+                            </div>
+                            <div className={styles.activityRight}>
+                                <p className={styles.activityPositive}>+14.7123239 USDC</p>
+                                <p className={styles.activityNegative}>-0.05 SOL</p>
+                            </div>
+                        </li>
+
+                        <li className={styles.activityItem}>
+                            <div className={styles.activityLeft}>
+                                <Image src={S} alt="limit order" className={styles.activityTokenIcon}/>
+                                <div className={styles.activityTextBlock}>
+                                    <p className={styles.activityTitle}>Limit Order</p>
+                                    <p className={styles.activityDate}>December 4, 2024</p>
+                                </div>
+                            </div>
+                            <div className={styles.activityRight}>
+                                <p className={styles.activityPositive}>+14.7123239 USDC</p>
+                                <p className={styles.activityNegative}>-0.05 SOL</p>
+                            </div>
+                        </li>
                     </ul>
+                    <div className={styles.activityFooter}>
+                        <a href="#" className={styles.viewAll}>View all</a>
+                        <MiniArrowDownIcon/>
+                    </div>
                 </div>
+
 
                 {/* 5. Holdings (внизу) */}
                 <div className={`${styles.card} ${styles.holdingsCard}`}>

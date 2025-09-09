@@ -62,21 +62,32 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
                         <div className={styles.pills}>
                             <div className={styles.pill}>
-                                <RubyIcon />
+                                <div className={styles.pillIcon}>
+                                    <RubyIcon />
+                                </div>
+                                <div className={styles.pillText}>
                                 <div className={styles.pillTitle}>Every DeFi Position.</div>
                                 <div className={styles.pillSubtitle}>Together with your liquid tokens.</div>
+                                </div>
                             </div>
-
                             <div className={styles.pill}>
+                                <div className={styles.pillIcon}>
                                 <WidgetIcon/>
+                                </div>
+                                <div className={styles.pillText}>
                                 <div className={styles.pillTitle}>Find money.</div>
                                 <div className={styles.pillSubtitle}>Discover airdrops you didn&apos;t know you had.</div>
+                                </div>
                             </div>
 
                             <div className={styles.pill}>
+                                <div className={styles.pillIcon}>
                                 <SIcon/>
+                                </div>
+                                <div className={styles.pillText}>
                                 <div className={styles.pillTitle}>70+ Protocols.</div>
                                 <div className={styles.pillSubtitle}>Tracked and managed.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +99,9 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
                 <div className={styles.bottomGrid}>
                     <article className={`${styles.card} ${styles.leftCard}`}>
-                        <AssetsIcon/>
+                        <div className={styles.cardIcon}>
+                            <AssetsIcon />
+                        </div>
                         <h3 className={styles.cardTitle}>Put your assets to work.</h3>
                         <p className={styles.cardText}>
                             Track every Solana DeFi token, position, and airdrop in one place — automatically.
@@ -97,7 +110,9 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     </article>
 
                     <article className={`${styles.card} ${styles.rightCard}`}>
-                        <TapIcon/>
+                        <div className={styles.cardIcon}>
+                            <TapIcon />
+                        </div>
                         <h3 className={styles.cardTitle}>Take action with one tap.</h3>
                         <p className={styles.cardText}>
                             Your ultimate DeFi command center. Unlock hidden assets and manage your entire

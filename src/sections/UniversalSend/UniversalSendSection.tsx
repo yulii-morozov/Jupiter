@@ -42,7 +42,7 @@ export const UniversalSendSection: React.FC<UniversalSendSectionProps> = ({
     return (
         <section className={styles.section}>
             <div className={styles.content}>
-                <span className={styles.badge}>UNIVERSAL SEND</span>
+                <p className={styles.badge}>UNIVERSAL SEND</p>
                 <h1 className={styles.title}>
                     Send Money to <span className={styles.highlight}>Anyone, Anywhere</span>
                 </h1>

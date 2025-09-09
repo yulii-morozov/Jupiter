@@ -49,9 +49,9 @@ export const MagicScanSection: React.FC<MagicScanSectionProps> = ({
                 MAGIC SCAN
             </div>
 
-            <h1 className={styles.title}>
-                Cutting-<br />edge <span className={styles.highlight}>AI</span>
-            </h1>
+            <p className={styles.title}>
+                Cutting - edge <span className={styles.highlight}>AI</span>
+            </p>
 
             <div className={styles.phoneWrapper}>
                 <Image

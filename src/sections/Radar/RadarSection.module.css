@@ -16,8 +16,7 @@
     width: fit-content;
     height: 36px;
     opacity: 1;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     gap: 4px;
 
     font-family: Satoshi;
@@ -32,6 +31,7 @@
     border-image-source: linear-gradient(89.92deg, rgba(255, 255, 255, 0) -13.12%, rgba(199, 242, 132, 0.45) 47.3%, rgba(255, 255, 255, 0) 107.72%);
     border-image-slice: 1;
     display: flex;
+    margin-bottom: 24px;
 }
 
 .title {
