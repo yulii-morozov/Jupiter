@@ -105,25 +105,44 @@
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    background: rgba(255, 255, 255, 1);
+    justify-content: center;
   }
   
   .storeBtn:hover {
     transform: translateY(-2px);
   }
-  
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 100%;
+  gap: 1px;
+}
+
   .storeText {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    line-height: 1.1;
+    color: rgba(2, 4, 17, 1);
+    font-family: Satoshi;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
   }
   
   .small,
   .smallText {
     font-size: 12px;
-    line-height: 16px;
-    color: #6A6C76;
-    margin-top: -4px;
+    line-height: 100%;
+    color: rgba(106, 108, 118, 1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Satoshi;
+    font-weight: 500;
+    text-align: center;
   }
   
   .storeText span:last-child {

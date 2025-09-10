@@ -5,7 +5,7 @@
 import { useState, useCallback } from 'react';
 import { SectionType } from '@/types/sections';
 
-const SECTIONS_ORDER = [SectionType.HERO, SectionType.TRADING, SectionType.LOWER_FEES, SectionType.PRO, SectionType.FASTEST, SectionType.PORTFOLIO, SectionType.UNIVERSAL, SectionType.MAGIC, SectionType.RADAR, SectionType.FOOTER];
+const SECTIONS_ORDER = [SectionType.HERO, SectionType.TRADING, SectionType.LOWER_FEES, SectionType.PRO, SectionType.FASTEST, SectionType.PORTFOLIO, SectionType.UNIVERSAL, SectionType.MAGIC, SectionType.RADAR];
 const TRANSITION_DURATION = 800;
 
 export interface SectionAnimationEvent {

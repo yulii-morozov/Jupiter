@@ -3,7 +3,6 @@ export enum SectionType {
     TRADING = 'trading',
     LOWER_FEES = 'lower_fees',
     PRO = 'pro',
-    FOOTER = 'footer',
     FASTEST = 'fastest',
     UNIVERSAL = 'universal',
     MAGIC = 'magic',

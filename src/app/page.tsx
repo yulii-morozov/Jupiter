@@ -134,18 +134,7 @@ export default function App() {
                     />
                 </div>
             )}
-
-            {isSectionVisible(SectionType.FOOTER) && (
-                <div className={styles.section}>
-                    <Footer
-                        isActive={activeSection === SectionType.FOOTER}
-                        isTransitioning={isTransitioning}
-                        onRequestPrevSection={goToPrevSection}
-                        onRequestNextSection={goToNextSection}
-                        animationEvent={getSectionAnimationEvent(SectionType.FOOTER)}
-                    />
-                </div>
-            )}
+            {activeSection === SectionType.RADAR && <Footer />}
         </div>
     );
 }

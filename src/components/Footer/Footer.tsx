@@ -2,58 +2,24 @@
 
 import React from 'react';
 import styles from './Footer.module.css';
-import { SectionAnimationEvent } from '@/hooks/useSectionManager';
-import { ScrollEvent, useLocalScroll } from '@/hooks/useLocalScroll';
-import {JupiterIcon} from "@/icons/JupiterIcon";
+import { JupiterIcon } from "@/icons/JupiterIcon";
 
-interface FooterProps {
-    isActive: boolean;
-    isTransitioning: boolean;
-    onRequestPrevSection: () => void;
-    onRequestNextSection: () => void;
-    animationEvent: SectionAnimationEvent;
-}
-
-export const Footer: React.FC<FooterProps> = ({
-                                                  isActive,
-                                                  isTransitioning,
-                                                  onRequestPrevSection,
-                                                  onRequestNextSection,
-                                              }) => {
-    const scrollEvents = [
-        { type: 'next_section' as const },
-    ];
-
-    const handleScrollEvent = (event: ScrollEvent) => {
-        if (event.type === 'next_section') {
-            onRequestNextSection();
-        }
-    };
-
-    useLocalScroll({
-        scrollEvents,
-        onScrollEvent: handleScrollEvent,
-        onScrollUpFromTop: onRequestPrevSection,
-        disabled: !isActive || isTransitioning,
-        resetTrigger: isActive && !isTransitioning,
-    });
-
+export const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.content}>
+                {/* Ліва частина */}
                 <div className={styles.brand}>
                     <div className={styles.logoRow}>
-                        <JupiterIcon />
+                        <JupiterIcon width={32} height={32} />
                         <h2 className={styles.title}>Jupiter Mobile</h2>
                     </div>
                     <p className={styles.description}>
                         Building the best decentralized trading platform & largest DAO in crypto.
                     </p>
-                    <p className={styles.copy}>
-                        © 2025 Jupiter Exchange All Rights Reserved
-                    </p>
                 </div>
 
+                {/* Права частина — лінки */}
                 <div className={styles.links}>
                     <div className={styles.linkGroup}>
                         <h4 className={styles.groupTitle}>Spot</h4>
@@ -87,8 +53,14 @@ export const Footer: React.FC<FooterProps> = ({
                 </div>
             </div>
 
-            <div className={styles.terms}>
-                <a href="#">Terms & Conditions</a>
+            {/* Нижній ряд */}
+            <div className={styles.bottomRow}>
+                <p className={styles.copy}>
+                    © 2025 Jupiter Exchange All Rights Reserved
+                </p>
+                <div className={styles.terms}>
+                    <a href="#">Terms & Conditions</a>
+                </div>
             </div>
         </footer>
     );

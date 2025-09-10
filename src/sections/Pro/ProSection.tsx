@@ -138,7 +138,7 @@ export const ProSection: React.FC<ProSectionProps> = ({
 
                 <div className={styles.card}>
                     <div className={styles.jepContent}>
-                        <Image src={SOL} className={`${styles.jepImage}`} alt="second image" />
+                        <Image src={S} className={`${styles.jepImage}`} alt="second image" />
                         <div className={styles.jepTitleBlock}>
                             <div className={`${styles.jepTitles}`}>
                                 <p className={`${styles.jepTitle}`}>SOL <CheckIcon stroke={"#1FFFE9"} /></p>
@@ -206,21 +206,21 @@ export const ProSection: React.FC<ProSectionProps> = ({
                 <div className={`${styles.card} ${styles.holdingsCard}`}>
                     <h3 className={styles.cardTitle}>Your Holdings</h3>
                     <div className={styles.holdingsInfo}>
-                        <div>
+                        <div className={styles.holdingsItem}>
                             <p>Balance</p>
                             <b>1423 JUP</b>
                         </div>
-                        <div>
+                        <div className={styles.holdingsItem}>
                             <p>Value</p>
                             <b>$1502.54</b>
                         </div>
-                        <div>
+                        <div className={styles.holdingsItem}>
                             <p>Realised PnL</p>
-                            <span className={styles.positive}>+0.01</span>
+                            <span className={styles.positive}>+$0.01</span>
                         </div>
-                        <div>
+                        <div className={styles.holdingsItem}>
                             <p>Unrealised PnL</p>
-                            <span className={styles.positive}>+1.12</span>
+                            <span className={styles.positive}>+$1.12</span>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,8 @@ import { JupiterIcon } from '@/icons/JupiterIcon';
 import styles from './HeroSection.module.css';
 import heroBg from "@/assets/hero-bg.png";
 import Image from "next/image";
+import {AppleBlackIcon} from "@/icons/AppleBlackIcon";
+import {GoogleIcon} from "@/icons/GoogleIcon";
 
 interface HeroSectionProps {
   isActive: boolean;
@@ -64,6 +66,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <h1 className={styles.title}>The DeFi Superapp</h1>
           <p className={styles.description}>The 10x better trading, portfolio, and wallet app from Solana&apos;s top DeFi platform.</p>
           <div className={styles.buttons}>
+
+            <div className={styles.storeBtn}>
+              <AppleBlackIcon />
+              <div className={styles.textBlock}>
+                <div className={styles.smallText}>Get it on</div>
+                <div className={styles.storeText}>App Store</div>
+              </div>
+            </div>
+
+            <div className={styles.storeBtn}>
+              <GoogleIcon />
+              <div className={styles.textBlock}>
+                <div className={styles.smallText}>Download on</div>
+                <div className={styles.storeText}>Google Play</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
