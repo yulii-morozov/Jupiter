@@ -122,3 +122,53 @@
   height: 30vh;
   flex-shrink: 0;
 }
+
+.iconWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(106, 106, 106, 0.8);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(80px);
+  margin: -100px;
+}
+
+.iconBlock {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(106, 106, 106);
+  backdrop-filter: blur(80px);
+}
+
+.iconBlock svg {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+}
+
+
+.topLeft {
+  top: 20%;
+  left: -100px;
+}
+
+.bottomLeft {
+  bottom: 20%;
+  left: -100px;
+}
+
+.topRight {
+  top: 20%;
+  right: -100px;
+}
+
+.bottomRight {
+  bottom: 20%;
+  right: -100px;
+}

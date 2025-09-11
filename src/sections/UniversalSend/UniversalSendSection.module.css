@@ -90,3 +90,41 @@
     background: #b0ffb7;
     color: #000;
 }
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 56px;
+        white-space: normal;
+    }
+    .subtitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+    .subtitle {
+        font-size: 14px;
+    }
+    .button {
+        width: 100%;
+        max-width: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 13px;
+    }
+    .button {
+        width: 100%;
+        max-width: 170px;
+        font-size: 14px;
+    }
+}

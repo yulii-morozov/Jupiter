@@ -6,8 +6,8 @@ import styles from './ProSection.module.css';
 import { ScrollEvent, useLocalScroll } from '@/hooks/useLocalScroll';
 import TRUMP from "@/assets/Tokens/TRUMP.png";
 import JUP from "@/assets/Tokens/JUP.png";
-import SOL from "@/assets/Tokens/SOL.png";
 import S from "@/assets/Tokens/S.png"
+import DOUBLE from "@/assets/Tokens/DOUBLE.png";
 import Image from "next/image";
 import {StartSelectImage} from "@/icons/StarSelectImage";
 import {CheckIcon} from "@/icons/CheckIcon";
@@ -169,7 +169,7 @@ export const ProSection: React.FC<ProSectionProps> = ({
                     <ul className={styles.activityList}>
                         <li className={styles.activityItem}>
                             <div className={styles.activityLeft}>
-                                <Image src={S} alt="swap" className={styles.activityTokenIcon}/>
+                                <Image src={DOUBLE} alt="swap" className={styles.activityTokenIcon}/>
                                 <div className={styles.activityTextBlock}>
                                     <p className={styles.activityTitle}>Swap</p>
                                     <p className={styles.activityDate}>December 4, 2024</p>
@@ -183,7 +183,7 @@ export const ProSection: React.FC<ProSectionProps> = ({
 
                         <li className={styles.activityItem}>
                             <div className={styles.activityLeft}>
-                                <Image src={S} alt="limit order" className={styles.activityTokenIcon}/>
+                                <Image src={DOUBLE} alt="limit order" className={styles.activityTokenIcon}/>
                                 <div className={styles.activityTextBlock}>
                                     <p className={styles.activityTitle}>Limit Order</p>
                                     <p className={styles.activityDate}>December 4, 2024</p>

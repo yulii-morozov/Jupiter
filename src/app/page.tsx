@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSectionManager } from '@/hooks/useSectionManager';
 import { HeroSection } from '@/sections/Hero/HeroSection';
 import { TradingSection } from '@/sections/Trading/TradingSection';
@@ -24,6 +24,20 @@ export default function App() {
         getSectionAnimationEvent,
         isSectionVisible,
     } = useSectionManager();
+
+    const [showFooter, setShowFooter] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Перевіряємо, чи доскролили до кінця сторінки
+            const reachedBottom =
+                window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+            setShowFooter(reachedBottom);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <div className={styles.container}>
