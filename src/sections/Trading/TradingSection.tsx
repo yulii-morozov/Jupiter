@@ -1,8 +1,4 @@
-// src/sections/Trading/TradingSection.tsx
-
 'use client';
-
-import React, { useEffect, useRef } from 'react';
 import { SectionAnimationEvent } from '../../hooks/useSectionManager';
 import styles from './TradingSection.module.css';
 import phoneImage from "@/assets/iphone14.png";
@@ -22,7 +18,6 @@ interface TradingSectionProps {
   animationEvent: SectionAnimationEvent;
 }
 
-const SCROLL_DEBOUNCE_MS = 50;
 const BG_HEIGHT_PX = 1000;
 
 export const TradingSection: React.FC<TradingSectionProps> = ({
@@ -31,37 +26,6 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
   onRequestPrevSection,
   onRequestNextSection,
 }) => {
-  // const scrollRef = useRef<HTMLDivElement | null>(null);
-  // const lastWheelTime = useRef(0);
-  //
-  // useEffect(() => {
-  //   const el = scrollRef.current;
-  //   if (!el) return;
-  //   const onWheel = (e: WheelEvent) => {
-  //     if (!isActive || isTransitioning) return;
-  //     const now = Date.now();
-  //     if (now - lastWheelTime.current < SCROLL_DEBOUNCE_MS) {
-  //       e.preventDefault();
-  //       return;
-  //     }
-  //     const { scrollTop, scrollHeight, clientHeight } = el;
-  //     if (e.deltaY < 0 && scrollTop === 0) {
-  //       lastWheelTime.current = now;
-  //       onRequestPrevSection();
-  //     } else if (e.deltaY > 0 && Math.ceil(scrollTop + clientHeight) >= scrollHeight) {
-  //       lastWheelTime.current = now;
-  //       onRequestNextSection();
-  //     }
-  //   };
-  //   el.addEventListener('wheel', onWheel, { passive: false });
-  //   return () => el.removeEventListener('wheel', onWheel);
-  // }, [isActive, isTransitioning, onRequestPrevSection, onRequestNextSection]);
-  //
-  // useEffect(() => {
-  //   if (isActive && !isTransitioning && scrollRef.current) {
-  //     scrollRef.current.scrollTop = 0;
-  //   }
-  // }, [isActive, isTransitioning]);
 
   const scrollEvents = [
     { type: 'local_animation' as const, animationStep: 1 },
@@ -87,7 +51,6 @@ export const TradingSection: React.FC<TradingSectionProps> = ({
           className={styles.tradingSection}
       >
         <div
-            // ref={scrollRef}
             className={styles.scrollContainer} style={{ paddingBottom: `${BG_HEIGHT_PX}px` }}>
           <Image
               src={bgImage}

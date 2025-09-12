@@ -2,7 +2,7 @@
 
 'use client';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ScrollEvent, useLocalScroll} from '../../hooks/useLocalScroll';
 import { SectionAnimationEvent } from '../../hooks/useSectionManager';
 import { JupiterIcon } from '@/icons/JupiterIcon';
@@ -11,6 +11,7 @@ import heroBg from "@/assets/hero-bg.png";
 import Image from "next/image";
 import {AppleBlackIcon} from "@/icons/AppleBlackIcon";
 import {GoogleIcon} from "@/icons/GoogleIcon";
+import BlurText from "@/components/BlurText/BlurText";
 
 interface HeroSectionProps {
   isActive: boolean;
@@ -29,10 +30,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                                                           onRequestNextSection,
                                                         }) => {
 
+  const [descriptionIsActive, setDescriptionIsActive] = useState(false);
   const scrollEvents = [
     { type: 'local_animation' as const, animationStep: 1 },
     { type: 'next_section' as const },
   ];
+
+  const handleAnimationComplete = () => {
+    setDescriptionIsActive(true);
+  }
 
   const handleScrollEvent = (event: ScrollEvent) => {
     if (event.type === 'next_section') {
@@ -63,8 +69,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <p className={styles.subtitle}>
             <JupiterIcon /> Jupiter Mobile</p>
-          <h1 className={styles.title}>The DeFi Superapp</h1>
-          <p className={styles.description}>The 10x better trading, portfolio, and wallet app from Solana&apos;s top DeFi platform.</p>
+          <BlurText
+              text="The DeFi Superapp"
+              delay={100}
+              animateBy="words"
+              direction="bottom"
+              className={styles.title}
+              onAnimationComplete={handleAnimationComplete}
+          />
+          <div className={`${styles.descriptionBlock}`}>
+            <p className={`${styles.description} ${descriptionIsActive && styles.active}`}>
+              The 10x better trading, portfolio, and wallet app from Solana&apos;s top DeFi platform.
+            </p>
+          </div>
           <div className={styles.buttons}>
 
             <div className={styles.storeBtn}>

@@ -146,9 +146,9 @@ export default function App() {
                         onRequestNextSection={goToNextSection}
                         animationEvent={getSectionAnimationEvent(SectionType.RADAR)}
                     />
+                    <Footer />
                 </div>
             )}
-            {activeSection === SectionType.RADAR && <Footer />}
         </div>
     );
 }
