@@ -76,23 +76,34 @@
     text-align: center;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
-  
-  .description {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 140%;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-    max-width: 623px;
-  }
+
+.descriptionBlock {
+  position: relative;
+  width: 623px;
+}
+.description {
+  position: absolute;
+  top: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  opacity: 0;
+  margin-bottom: 1.5rem;
+}
+.description.active {
+  top: 0;
+  transition: top 500ms ease, opacity 500ms 100ms ease;
+  opacity: 0.9;
+}
   
   .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
+    margin-top: 40px;
   }
   
   .storeBtn {
